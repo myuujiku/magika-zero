@@ -1,3 +1,5 @@
 {
-  "item.magika-zero.book_of_knowledge": "Book of Knowledge"
+  "item.magika-zero.book_of_knowledge": "Book of Knowledge",
+  "item.magika-zero.magical_substance": "Magical Substance",
+  "item.magika-zero.magical_substance.tooltip": "Mana: %s"
 }
