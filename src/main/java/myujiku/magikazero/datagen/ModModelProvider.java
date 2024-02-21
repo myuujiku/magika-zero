@@ -18,5 +18,6 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.BOOK_OF_KNOWLEDGE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAGICAL_SUBSTANCE, Models.GENERATED);
     }
 }
