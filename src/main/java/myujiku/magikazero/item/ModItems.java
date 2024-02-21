@@ -11,10 +11,10 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item BOOK_OF_KNOWLEDGE = new Item(new FabricItemSettings().maxCount(1));
+    public static final Item BOOK_OF_KNOWLEDGE = new BookOfKnowledge(new FabricItemSettings().maxCount(1));
 
     public static void registerItems() {
-        registerItem(BOOK_OF_KNOWLEDGE, "book_of_knowledge");
+        registerItem(BOOK_OF_KNOWLEDGE, "book_of_knowledge", ItemGroups.TOOLS);
     }
 
     private static void registerItem(Item item, String path) {
