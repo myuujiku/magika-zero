@@ -1,17 +1,17 @@
 {
 	"schemaVersion": 1,
 	"id": "magika-zero",
-	"version": "0.1",
+	"version": "0.1.0",
 	"name": "Magika ZERO",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Create magic from zero",
 	"authors": [
-		"Me!"
+		"myujiku"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0-only",
 	"icon": "assets/magika-zero/icon.png",
 	"environment": "*",
 	"entrypoints": {
