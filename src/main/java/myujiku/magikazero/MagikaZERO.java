@@ -10,8 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MagikaZERO implements ModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("magika-zero");
-	public static final OwoNetChannel CHANNEL = OwoNetChannel.create(new Identifier("magika-zero", "main"));
+	public static final String MOD_ID = "magika-zero";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final OwoNetChannel CHANNEL = OwoNetChannel.create(new Identifier(MOD_ID, "main"));
 
 	@Override
 	public void onInitialize() {
