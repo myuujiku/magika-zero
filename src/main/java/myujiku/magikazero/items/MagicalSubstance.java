@@ -1,4 +1,4 @@
-package myujiku.magikazero.item;
+package myujiku.magikazero.items;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;

@@ -1,5 +1,7 @@
-package myujiku.magikazero.item;
+package myujiku.magikazero;
 
+import myujiku.magikazero.items.BookOfKnowledge;
+import myujiku.magikazero.items.MagicalSubstance;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;

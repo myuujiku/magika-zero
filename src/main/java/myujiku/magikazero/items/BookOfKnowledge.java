@@ -1,10 +1,9 @@
-package myujiku.magikazero.item;
+package myujiku.magikazero.items;
 
 import myujiku.magikazero.MagikaZERO;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -15,11 +14,10 @@ public class BookOfKnowledge extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (world.isClient) {
-            //MagikaZERO.CHANNEL.clientHandle().send(new Packet());
             return super.use(world, user, hand);
         }
 
-        MagikaZERO.CHANNEL.serverHandle((ServerPlayerEntity) user).send(new OpenUIPacket());
+        MagikaZERO.CHANNEL.serverHandle(user).send(new OpenUIPacket());
 
         return TypedActionResult.pass(user.getStackInHand(hand));
     }
