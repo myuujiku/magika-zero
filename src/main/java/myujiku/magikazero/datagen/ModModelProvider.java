@@ -1,6 +1,6 @@
 package myujiku.magikazero.datagen;
 
-import myujiku.magikazero.item.ModItems;
+import myujiku.magikazero.items.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;

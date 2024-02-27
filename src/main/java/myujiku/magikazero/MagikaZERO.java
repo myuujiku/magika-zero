@@ -1,8 +1,8 @@
 package myujiku.magikazero;
 
 import io.wispforest.owo.network.OwoNetChannel;
-import myujiku.magikazero.item.BookOfKnowledge;
-import myujiku.magikazero.item.ModItems;
+import myujiku.magikazero.items.BookOfKnowledge;
+import myujiku.magikazero.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
