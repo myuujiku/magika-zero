@@ -31,13 +31,14 @@ public class Spell {
 
     public void cast(World world, PlayerEntity caster) {
         ArrayList<SpellTarget> targets = new ArrayList<>();
+        HashMap<String, Double> manaSources = new HashMap<>();
 
-        mainGroup.cast(world, caster, targets, this);
+        mainGroup.cast(world, caster, targets, manaSources, this);
     }
 
-    public void castGroup(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, String group) {
+    public void castGroup(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, HashMap<String, Double> manaSources, String group) {
         Optional.ofNullable(extraGroups.get(group)).ifPresentOrElse(
-                spellModuleGroup -> spellModuleGroup.cast(world, caster, targets, this),
+                spellModuleGroup -> spellModuleGroup.cast(world, caster, targets, manaSources, this),
                 () -> caster.sendMessage(Text.of("Spell group with name `" + group + "` not found"))
         );
     }

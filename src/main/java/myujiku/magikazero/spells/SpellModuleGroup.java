@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SpellModuleGroup {
@@ -24,15 +25,15 @@ public class SpellModuleGroup {
         moduleSettings = new ArrayList<>(capacity);
     }
 
-    public void cast(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, Spell spell) {
+    public void cast(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, HashMap<String, Double> manaSources, Spell spell) {
         AtomicBoolean terminate = new AtomicBoolean(false); // IDK if I like this or not
 
         for (int i = 0; i < moduleIDs.size(); i++) {
             Identifier moduleID = moduleIDs.get(i);
             NbtCompound settings = moduleSettings.get(i);
             SpellModuleRegistry.get(moduleID).ifPresentOrElse(
-                    module -> module.apply(world, caster, targets, settings).ifPresent(spellBranch -> {
-                        spell.castGroup(world, caster, targets, spellBranch.targetBranch);
+                    module -> module.apply(world, caster, targets, manaSources, settings).ifPresent(spellBranch -> {
+                        spell.castGroup(world, caster, targets, manaSources, spellBranch.targetBranch);
                         terminate.set(spellBranch.terminate);
                     }),
                     () -> caster.sendMessage(Text.of("Module with id " + moduleID + " not found"))
