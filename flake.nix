@@ -13,6 +13,7 @@
         glfw
         openal
         stdenv.cc.cc.lib
+        flite
       ];
   in {
     devShell.x86_64-linux = pkgs.mkShell {
