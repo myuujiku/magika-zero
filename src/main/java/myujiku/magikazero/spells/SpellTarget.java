@@ -49,15 +49,13 @@ public class SpellTarget {
         return Optional.ofNullable(match(
                 Entity::getPos,
                 position -> position,
-                inventorySlot -> null
-        ));
+                inventorySlot -> null));
     }
 
     public <T> T match(
             Function<Entity, T> matchEntity,
             Function<Position, T> matchPosition,
-            Function<Integer, T> matchInventorySlot
-    ) {
+            Function<Integer, T> matchInventorySlot) {
         if (entity != null) {
             return matchEntity.apply(entity);
         }

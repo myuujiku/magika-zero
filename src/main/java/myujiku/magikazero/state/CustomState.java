@@ -17,8 +17,7 @@ public class CustomState extends PersistentState {
     private static Type<CustomState> type = new Type<>(
             CustomState::new,
             CustomState::fromNbt,
-            null
-    );
+            null);
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {

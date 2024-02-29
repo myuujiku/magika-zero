@@ -25,7 +25,8 @@ public class SpellModuleGroup {
         moduleSettings = new ArrayList<>(capacity);
     }
 
-    public void cast(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, HashMap<String, Double> manaSources, Spell spell) {
+    public void cast(World world, PlayerEntity caster, ArrayList<SpellTarget> targets,
+            HashMap<String, Double> manaSources, Spell spell) {
         AtomicBoolean terminate = new AtomicBoolean(false); // IDK if I like this or not
 
         for (int i = 0; i < moduleIDs.size(); i++) {
@@ -36,8 +37,7 @@ public class SpellModuleGroup {
                         spell.castGroup(world, caster, targets, manaSources, spellBranch.targetBranch);
                         terminate.set(spellBranch.terminate);
                     }),
-                    () -> caster.sendMessage(Text.of("Module with id " + moduleID + " not found"))
-            );
+                    () -> caster.sendMessage(Text.of("Module with id " + moduleID + " not found")));
 
             if (terminate.get()) {
                 break;
@@ -71,8 +71,7 @@ public class SpellModuleGroup {
         for (int i = 0; i < len; i++) {
             group.moduleIDs.add(Identifier.of(
                     modulesNbt.getString(i + "n"),
-                    modulesNbt.getString(i + "p")
-            ));
+                    modulesNbt.getString(i + "p")));
             group.moduleSettings.add(modulesNbt.getCompound(i + "s"));
         }
 

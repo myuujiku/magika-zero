@@ -22,7 +22,8 @@ public class Spell {
         extraGroups = new HashMap<>();
     }
 
-    public Spell(String name, String description, SpellModuleGroup mainGroup, HashMap<String, SpellModuleGroup> extraGroups) {
+    public Spell(String name, String description, SpellModuleGroup mainGroup,
+            HashMap<String, SpellModuleGroup> extraGroups) {
         this.name = name;
         this.description = description;
         this.mainGroup = mainGroup;
@@ -36,11 +37,11 @@ public class Spell {
         mainGroup.cast(world, caster, targets, manaSources, this);
     }
 
-    public void castGroup(World world, PlayerEntity caster, ArrayList<SpellTarget> targets, HashMap<String, Double> manaSources, String group) {
+    public void castGroup(World world, PlayerEntity caster, ArrayList<SpellTarget> targets,
+            HashMap<String, Double> manaSources, String group) {
         Optional.ofNullable(extraGroups.get(group)).ifPresentOrElse(
                 spellModuleGroup -> spellModuleGroup.cast(world, caster, targets, manaSources, this),
-                () -> caster.sendMessage(Text.of("Spell group with name `" + group + "` not found"))
-        );
+                () -> caster.sendMessage(Text.of("Spell group with name `" + group + "` not found")));
     }
 
     public NbtCompound asNbt() {
@@ -69,7 +70,6 @@ public class Spell {
                 nbt.getString("name"),
                 nbt.getString("description"),
                 SpellModuleGroup.fromNbt(nbt.getCompound("main_group")),
-                extraGroups
-        );
+                extraGroups);
     }
 }

@@ -9,7 +9,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class BookOfKnowledge extends Item {
-    public record OpenUIPacket() {}
+    public record OpenUIPacket() {
+    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

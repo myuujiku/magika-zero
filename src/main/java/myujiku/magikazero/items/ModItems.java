@@ -26,7 +26,7 @@ public class ModItems {
     private static void registerItem(Item item, String path, RegistryKey<ItemGroup> group) {
         registerItem(item, path);
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> {
-                content.add(item);
+            content.add(item);
         });
     }
 }
